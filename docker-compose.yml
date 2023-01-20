@@ -144,11 +144,11 @@ services:
     command: ["/app/docker/docker-bootstrap.sh", "worker"]
     env_file: docker/.env
     environment:
-      DATABASE_HOST: localhost
+      DATABASE_HOST: 172.17.0.1
       DATABASE_DB: test
       REDIS_CELERY_DB: 2
       REDIS_RESULTS_DB: 3
-      REDIS_HOST: localhost
+      REDIS_HOST: 172.17.0.1
     network_mode: host
     depends_on: *superset-depends-on
     user: *superset-user
