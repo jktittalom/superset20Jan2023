@@ -29,6 +29,7 @@ x-superset-volumes: &superset-volumes
 
 version: "3.7"
 services:
+
   redis:
     image: redis:7
     container_name: superset_cache
@@ -47,6 +48,17 @@ services:
       - "127.0.0.1:5432:5432"
     volumes:
       - db_home:/var/lib/postgresql/data
+  
+  nginx:
+    container_name: nginx
+    build:
+      context: nginx/
+      dockerfile: Dockerfile
+    depends_on: *superset-depends-on
+    ports:
+      - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
+    restart: unless-stopped
 
   superset:
     env_file: docker/.env
