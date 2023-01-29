@@ -79,10 +79,6 @@ RUN cd /app \
 
 COPY --from=superset-node /app/superset/static/assets /app/superset/static/assets
 
-# Copy new logo image TAD3
-COPY ./tad3-analyze/tad3-analyze.png /app/superset/static/assets
-
-
 ## Lastly, let's install superset itself
 COPY superset /app/superset
 COPY setup.py MANIFEST.in README.md /app/
@@ -92,6 +88,9 @@ RUN cd /app \
         && flask fab babel-compile --target superset/translations
 
 COPY ./docker/run-server.sh /usr/bin/
+
+# Copy new logo image TAD3
+COPY ./tad3-analyze/tad3-analyze.png /app/superset/static/assets
 
 RUN chmod a+x /usr/bin/run-server.sh
 
