@@ -173,7 +173,7 @@ const mockedProps = {
     brand: {
       path: '/superset/profile/admin/',
       icon: '/static/assets/images/superset-logo-horiz.png',
-      alt: 'Superset',
+      alt: 'TAD3 Analyze',
       width: '126',
       tooltip: '',
       text: '',
