@@ -96,7 +96,7 @@ WORKDIR /app
 USER superset
 
 #HEALTHCHECK CMD curl -f "http://localhost:$SUPERSET_PORT/health"
-HEALTHCHECK CMD curl -f "http://ec2-18-191-238-96.us-east-2.compute.amazonaws.com:$SUPERSET_PORT/health"
+HEALTHCHECK CMD curl -f "http://analyze.tad3.org/health"
 
 
 EXPOSE ${SUPERSET_PORT}
